@@ -25,7 +25,6 @@ class Dialog extends React.Component {
 
 Dialog.propTypes = {
 	header: PropTypes.string,
-
 	onClose: PropTypes.func.isRequired
 };
 

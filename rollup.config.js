@@ -21,6 +21,7 @@ export default {
       sourcemap: true
     }
   ],
+  external: [ 'react', 'react-dom', 'react-scripts', 'prop-types', 'hookrouter'],
   plugins: [
     external(),
     postcss({

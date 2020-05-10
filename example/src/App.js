@@ -1,27 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Button, Dialog } from 'seventh-component-library';
+import { Button } from 'seventh-component-library';
 
-function DialogContainer() {
-	const [ display, setDisplay ] = useState(false);
-
-	let dialog;
-	if (display)
-	{
-		dialog = (
-			<Dialog onClose={ () => setDisplay(false) }>
-				<div>Content</div>
-			</Dialog>
-		);
-	}
-
-	return (
-		<div>
-			{dialog}
-			<Button value="" onClick={ () => setDisplay(!display) }>Click Me</Button>
-		</div>
-	);
-};
+// const MyDialog = dialogWithControl(props => {
+// 	return (<div>Content</div>);
+// }, { buttonValue: "Open Dialog", header: "Custom Dialog Header" });
 
 export default class App extends React.Component {
 	render () {
@@ -32,7 +15,7 @@ export default class App extends React.Component {
 				<Button disabled={true}>Can't Click Me</Button>
 				<hr />
 				<h2>Dialog</h2>
-				<DialogContainer />
+				<p>Not yet...</p>
 				<hr />
 			</div>
 		);
