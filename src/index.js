@@ -1,5 +1,8 @@
-import ExampleComponent from './ExampleComponent';
 import Button from './Button';
+import Dialog from './Dialog';
 
-export { ExampleComponent, Button }
+export {
+	Button,
+	Dialog
+};
 
