@@ -1,23 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react'
+import { Button, dialogWithControl } from 'seventh-components-library'
+import 'seventh-components-library/dist/index.css'
 
-import { Button } from 'seventh-component-library';
+const ControlledDialog = dialogWithControl(props => {
+	// console.debug("ControlledDialog props", props);
 
-// const MyDialog = dialogWithControl(props => {
-// 	return (<div>Content</div>);
-// }, { buttonValue: "Open Dialog", header: "Custom Dialog Header" });
-
-export default class App extends React.Component {
-	render () {
-		return (
-			<div>
-				<h2>Button</h2>
-				<Button>Click Me</Button>
-				<Button disabled={true}>Can't Click Me</Button>
-				<hr />
-				<h2>Dialog</h2>
-				<p>Not yet...</p>
-				<hr />
+	return (
+		<div>
+			<div className="flex column">
+				<label htmlFor="nameinput" className="input-label">Name</label>
+				<input id="nameinput" className="input" name="name" value={props.value.name || ""} onChange={props.onInput} />
 			</div>
-		);
+			<div className="column" style={{marginTop: '20px'}}>
+				<label htmlFor="numberinput" className="input-label">Favorite Number</label>
+				<input id="numberinput" className="input" name="number" value={props.value.number || ""} onChange={props.onInput} />
+			</div>
+		</div>
+	);
+}, { buttonValue: "Open Dialog" })
+
+
+const App = () => {
+
+	const onComplete = data => {
+		console.log("onComplete", data);
 	};
-};
+
+	const defaults = {
+		name: 'Unnamed'
+	};
+
+	return (
+		<>
+			<ControlledDialog onComplete={onComplete} defaults={defaults}/>
+		</>
+	);
+}
+
+export default App
